@@ -16,6 +16,17 @@ document.onreadystatechange = function () {
     if (document.readyState === 'complete') {
         document.getElementById("anim-container").appendChild(renderer.domElement);
     }
+
+    var node = document.createElement("span");
+    node.innerHTML = "sz3";
+    node.style.position = "absolute";
+    node.style.left = "50%";
+    node.style.top = "50%";
+    node.style["z-index"] = 1;
+    node.style.opacity = .5;
+    node.style.cursor = "default";
+    node.style["user-select"] = "none";
+    document.getElementById("anim-container").appendChild(node);
 };
 
 var objekti = [];
@@ -88,6 +99,7 @@ function dodajRandomKvadrat() {
     scene.add(k);
 }
 window.addEventListener('click', dodajRandomKvadrat);
+window.addEventListener('touchend', dodajRandomKvadrat);
 function dodajEnga() {
     dodajRandomKvadrat();
 }
