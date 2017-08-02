@@ -1,0 +1,8 @@
+{
+    "name": "sz3",
+    "version": "0.a",
+    "description": "inskripcija",
+    "dependencies": {
+        "express": "^4.15.3"
+    }
+}

@@ -112,3 +112,4 @@ function onWindowResize() {
 }
 window.addEventListener('resize', onWindowResize, false);
 
+var socket = io();
