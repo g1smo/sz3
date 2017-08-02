@@ -15,7 +15,15 @@ app.get('/anim.js', function(req, res){
 });
 
 io.on('connection', function(socket){
-    console.log('a user connected');
+    console.log('konekt');
+
+    socket.on('disconnect', function(){
+        console.log('diskonekt');
+    });
+
+    socket.on('dodajKvadrat', function(msg){
+        io.emit('dodajKvadrat', msg);
+    });
 });
 
 http.listen(3000, function(){

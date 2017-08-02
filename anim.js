@@ -2,6 +2,9 @@
 var width = window.innerWidth;
 var height = window.innerHeight;
 
+// Interaktivnost
+var socket = io();
+
 // Inicializiraj kamero, sceno, render
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
@@ -98,12 +101,22 @@ function dodajRandomKvadrat() {
     objekti.push(k);
     scene.add(k);
 }
-window.addEventListener('click', dodajRandomKvadrat);
-window.addEventListener('touchend', dodajRandomKvadrat);
+window.addEventListener('click', ustvariKvadrat);
+window.addEventListener('touchend', ustvariKvadrat);
+
+function ustvariKvadrat() {
+    //dodajRandomKvadrat();
+    socket.emit('dodajKvadrat', "lal");
+}
+
 function dodajEnga() {
     dodajRandomKvadrat();
 }
 setInterval(dodajEnga, 1500);
+
+socket.on('dodajKvadrat', function(msg){
+    dodajRandomKvadrat();
+});
 
 function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
@@ -111,5 +124,3 @@ function onWindowResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
 window.addEventListener('resize', onWindowResize, false);
-
-var socket = io();
