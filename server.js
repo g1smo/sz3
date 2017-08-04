@@ -15,7 +15,7 @@ app.get('/sz3/anim.js', function(req, res){
 });
 
 app.get('/sz3/socket.io.js', function(req, res){
-    res.sendFile(__dirname + '/node_modules/socket.io/node_modules/socket.io-client/dist/socket.io.js');
+    res.sendFile(__dirname + '/node_modules/socket.io-client/dist/socket.io.js');
 });
 
 io.on('connection', function(socket){
