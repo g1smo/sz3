@@ -14,6 +14,10 @@ app.get('/sz3/anim.js', function(req, res){
     res.sendFile(__dirname + '/anim.js');
 });
 
+app.get('/sz3/drive.js', function(req, res){
+    res.sendFile(__dirname + '/drive.js');
+});
+
 app.get('/sz3/socket.io.js', function(req, res){
     res.sendFile(__dirname + '/node_modules/socket.io-client/dist/socket.io.js');
 });

@@ -130,17 +130,29 @@ function dodajRandomKvadrat() {
 
 scene.add(pivot);
 
-function obrniGrupo(ev) {
-    return;
-    var movX = ev.movementX;
-    var movY = ev.movementY;
+var pageX = window.innerWidth;
+var pageY = window.innerHeight;
 
-    pivot.rotateX(movX / 1000);
-    pivot.rotateY(movY / 1000);
+function premikMiske(ev) {
+    //return;
+    //var movX = ev.movementX;
+    //var movY = ev.movementY;
+
+    var oX = ev.pageX;
+    var oY = ev.pageY;
+
+    var percentX = oX / pageX * 100;
+    var percentY = oY / pageY * 100;
+
+    // Prestavi kurzor
+    //kurzor.
+
+    //pivot.rotateX(movX / 1000);
+    //pivot.rotateY(movY / 1000);
 }
 
 // Glitch rotacija!
-//window.addEventListener('mousemove', obrniGrupo);
+window.addEventListener('mousemove', premikMiske);
 
 window.addEventListener('click', ustvariKvadrat);
 window.addEventListener('touchend', ustvariKvadrat);
